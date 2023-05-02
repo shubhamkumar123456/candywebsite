@@ -6,7 +6,7 @@ const CartItems = (props) => {
     <div>
       {candies.map((item)=>{
         return (
-        <div>
+        <div className='cart-item'>
             <p>{item.name}-{item.desc}-{item.price}-{item.quantity}</p>
         </div>
         )

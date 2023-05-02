@@ -2,20 +2,29 @@
     background: grey;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 700px;
     margin: auto;
+    padding: 1rem;
 }
 .itemlistNames{
     display: flex;
     gap: 4rem;
     align-items: center;
 }
+.names{
+    display: flex;
+    gap: 1rem;
+    text-align: center;
+}
+.names p{
+    width: 200px;
+}
 .itemlistCandy{
  
     display: flex;
-    justify-content: center;
+   
     margin: auto;
+    gap: 1rem;
     align-items: center;
 
 }

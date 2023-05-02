@@ -56,14 +56,17 @@ const ItemList = (props) => {
         {props.items.map((candy)=>{
         return(
             <div className={classes.itemlistCandy} key={candy.id}>
-               
-                <p >{candy.name}</p>
-                <p >{candy.description}</p>
-                <p >{candy.price}</p>
-                <p>{candy.quantity}</p>
-                <button onClick={()=>{handleClickBuy1(candy.name,candy.description,candy.price,candy.quantity)}}>Buy One</button>
+               <div className={classes.names}>
+               <p style={{width:"100px", backgroundColor:"red"}}>{candy.quantity}</p>
+                <p  style={{width:"100px", backgroundColor:"red"}}>{candy.name}</p>
+                <p  style={{width:"100px", backgroundColor:"red"}}>{candy.description}</p>
+                <p  style={{width:"100px", backgroundColor:"red"}}>{candy.price}</p>
+               </div>
+               <div>
+               <button onClick={()=>{handleClickBuy1(candy.name,candy.description,candy.price,candy.quantity)}}>Buy One</button>
                 <button onClick={()=>{handleClickBuy2(candy.name,candy.description,candy.price,candy.quantity)}}>Buy two</button>
                 <button onClick={()=>{handleClickBuy3(candy.name,candy.description,candy.price,candy.quantity)}}>Buy three</button>
+               </div>
             
             </div>
         )
