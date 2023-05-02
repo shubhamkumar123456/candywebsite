@@ -1,0 +1,21 @@
+.itemlist{
+    background: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 700px;
+    margin: auto;
+}
+.itemlistNames{
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+.itemlistCandy{
+ 
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+
+}

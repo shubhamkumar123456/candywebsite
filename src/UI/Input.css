@@ -1,0 +1,10 @@
+.input{
+    background-color: grey;
+    width: 70%;
+    margin: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap:5px
+
+}
