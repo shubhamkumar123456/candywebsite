@@ -1,13 +1,15 @@
 
-import { useState } from 'react';
+import {  useState } from 'react';
 import './App.css';
 import Input from './UI/Input';
-import Items from './components/Items';
-import { ItemContext } from './store/ItemContext';
+import CartState from './store/CartState'
 import ItemList from './components/ItemList';
 import Cart from './components/Cart';
+import { CartContext } from './store/CartContext';
 
 function App() {
+
+  
 
   const Candieslist=[
     {
@@ -51,12 +53,12 @@ const [dummyCandies, setdummyCandies] = useState(Candieslist);
   // console.log(item)
   return (
 
-    <ItemContext.Provider >
+    <CartState>
       <Cart length={item.length} items={item}/>
     <Input onAdd={addItemHandle} items={dummyCandies} setitem={setdummyCandies}/>
     <ItemList  items={dummyCandies} onAdd={addItemHandle}/>
-    {/* <Items/> */}
-    </ItemContext.Provider>
+    
+    </CartState>
   );
 }
 

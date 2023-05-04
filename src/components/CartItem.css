@@ -1,3 +1,27 @@
 .cart-item{
-    
+    background: rgb(181, 167, 167);
+    width: 600px;
+    margin: auto;
+    position: absolute;
+    top:30px;
+    left:30%;
+    padding: 1rem;
+    text-align: center;
+
+}
+
+.cart-item-items{
+    display: flex;
+    gap:4rem
+}
+.cart-item-span{
+    display: flex;
+    gap:4rem
+}
+.cart-item-span span{
+width: 100px;
+}
+
+.cart-item-items p{
+    width: 100px;
 }

@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import classes from './ItemList.module.css'
+import { CartContext } from '../store/CartContext'
+
 const ItemList = (props) => {
+  const [render, setrender] = useState(false);
     
   
- 
+  const ctx=useContext(CartContext)
+  const {addItem}= ctx
 
     const handleClickBuy1=(name,description,price,quantity)=>{
         // e.preventDefault();
@@ -13,8 +17,24 @@ const ItemList = (props) => {
           price,
           quantity:quantity
         }
-        props.onAdd(obj)
-        console.log(name,description,price)
+        // props.onAdd(obj)
+       
+        const existingCartItemIndex= ctx.item.findIndex(itemm=>itemm.name===name);
+        const existingCartItem=ctx.item[existingCartItemIndex];
+        // console.log(existingCartItem)
+        if(existingCartItem){
+         ctx.updateItem(ctx.item[existingCartItemIndex].name,ctx.item[existingCartItemIndex]) 
+      
+         setrender(!render)
+        }else{
+          
+          addItem(obj)
+          ctx.addPrice(price)
+          setrender(!render)
+        }
+        // setrender(!render)
+       
+        // console.log(name,description,price)
     }
     const handleClickBuy2=(name,description,price,quantity)=>{
         // e.preventDefault();
@@ -26,8 +46,22 @@ const ItemList = (props) => {
           price:updatedPrice,
           quantity:updatedQuantity
         }
-        props.onAdd(obj)
-        console.log(name,description,price)
+        // props.onAdd(obj)
+        const existingCartItemIndex= ctx.item.findIndex(itemm=>itemm.name===name);
+        const existingCartItem=ctx.item[existingCartItemIndex];
+        // console.log(existingCartItem)
+        if(existingCartItem){
+         ctx.updateItem(ctx.item[existingCartItemIndex].name) 
+         
+         setrender(!render)
+        }else{
+          
+          addItem(obj)
+          ctx.addPrice(price)
+          // setrender(!render)
+        }
+        // setrender(!render)
+        // console.log(name,description,price)
     }
     const handleClickBuy3=(name,description,price,quantity)=>{
         // e.preventDefault();
@@ -39,8 +73,22 @@ const ItemList = (props) => {
           price:updatedPrice,
           quantity:updatedQuantity
         }
-        props.onAdd(obj)
-        console.log(name,description,price)
+        // props.onAdd(obj)
+        const existingCartItemIndex= ctx.item.findIndex(itemm=>itemm.name===name);
+        const existingCartItem=ctx.item[existingCartItemIndex];
+        // console.log(existingCartItem)
+        if(existingCartItem){
+         ctx.updateItem(ctx.item[existingCartItemIndex].name) 
+      
+         setrender(!render)
+        }else{
+         
+          addItem(obj)
+          ctx.addPrice(price)
+          // setrender(!render)
+        }
+      
+        // console.log(name,description,price)
     }
 
   return (

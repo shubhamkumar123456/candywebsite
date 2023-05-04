@@ -13,8 +13,8 @@ const handleClick=(e)=>{
     let obj={
         name:candyName.current.value,
         description:candyDescription.current.value,
-        price:candyPrice.current.value,
-        quantity:candyQuantity.current.value
+        price:+candyPrice.current.value,
+        quantity:+candyQuantity.current.value
     }
     props.setitem([...props.items,obj])
     
