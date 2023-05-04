@@ -9,6 +9,8 @@ const CartItems = (props) => {
  const arr=[...item]
 
 //  console.log(arr)
+
+console.log(ctx.price)
   
     let sum=0;
 
@@ -17,9 +19,14 @@ const CartItems = (props) => {
     const handleClick=(value,price)=>{
       // const existingArrItem=arr.findIndex(item=>item.name==value);
       // console.log(ctx.price)
-      const existingItem=ctx.item.findIndex(item=>item.name==value);
+      const existingItem=ctx.item.findIndex(item=>item.name===value);
+      // const names=ctx.item[existingItem].name
+      // console.log(names)
+      const existingPriceItem=ctx.price.findIndex(item=>item.name===value)
+      const Price=ctx.price[existingPriceItem].value
+      console.log(price)
       ctx.item[existingItem].quantity=ctx.item[existingItem].quantity+1
-      ctx.item[existingItem].price=ctx.item[existingItem].quantity*ctx.price
+      ctx.item[existingItem].price=ctx.item[existingItem].quantity*Price
       setupdate(!update)
        // const originalPrice =ctx.item[existingItem].price
       // console.log(originalPrice)
@@ -42,8 +49,12 @@ const CartItems = (props) => {
 
    const handleMinus=(value)=>{
     // console.log(ctx.price)
-    const existingItem=ctx.item.findIndex(item=>item.name==value);
-    if(ctx.item[existingItem].quantity==1){
+    const existingItem=ctx.item.findIndex(item=>item.name===value);
+    const names=ctx.item[existingItem].name
+    const existingPriceItem=ctx.price.findIndex(item=>item.name===value)
+    const Price=ctx.price[existingPriceItem].value
+
+    if(ctx.item[existingItem].quantity===1){
       // console.log("null")
       ctx.removeItem(value)
     
@@ -51,7 +62,7 @@ const CartItems = (props) => {
     }
     setupdate(!update)
     ctx.item[existingItem].quantity=ctx.item[existingItem].quantity-1
-    ctx.item[existingItem].price-=ctx.price
+    ctx.item[existingItem].price-=Price
  
   //  console.log(e.target.parentNode.parentNode.id)
   //  const value=e.target.parentNode.parentNode.id

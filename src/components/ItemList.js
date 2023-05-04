@@ -23,15 +23,20 @@ const ItemList = (props) => {
         const existingCartItem=ctx.item[existingCartItemIndex];
         // console.log(existingCartItem)
         if(existingCartItem){
-         ctx.updateItem(ctx.item[existingCartItemIndex].name,ctx.item[existingCartItemIndex]) 
-      
-         setrender(!render)
-        }else{
+          ctx.updateItem(ctx.item[existingCartItemIndex].name) 
+        
           
-          addItem(obj)
-          ctx.addPrice(price)
-          setrender(!render)
-        }
+         //  setrender(!render)
+         }else{
+           
+           addItem(obj)
+           let priceObj={
+             name:name,
+             value:price,
+           }
+           ctx.addPrice(priceObj)
+           setrender(!render)
+         }
         // setrender(!render)
        
         // console.log(name,description,price)
@@ -52,13 +57,18 @@ const ItemList = (props) => {
         // console.log(existingCartItem)
         if(existingCartItem){
          ctx.updateItem(ctx.item[existingCartItemIndex].name) 
+       
          
-         setrender(!render)
+        //  setrender(!render)
         }else{
           
           addItem(obj)
-          ctx.addPrice(price)
-          // setrender(!render)
+          let priceObj={
+            name:name,
+            value:price,
+          }
+          ctx.addPrice(priceObj)
+          setrender(!render)
         }
         // setrender(!render)
         // console.log(name,description,price)
@@ -79,13 +89,17 @@ const ItemList = (props) => {
         // console.log(existingCartItem)
         if(existingCartItem){
          ctx.updateItem(ctx.item[existingCartItemIndex].name) 
-      
-         setrender(!render)
+         
+        //  setrender(!render)
         }else{
          
           addItem(obj)
-          ctx.addPrice(price)
-          // setrender(!render)
+          let priceObj={
+            name:name,
+            value:price,
+          }
+          ctx.addPrice(priceObj)
+          setrender(!render)
         }
       
         // console.log(name,description,price)

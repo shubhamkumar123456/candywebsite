@@ -1,10 +1,10 @@
 import { CartContext } from "./CartContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 const CartState=(props)=>{
-    const ctx=useContext(CartContext)
+    
     const itemInitial=[];
-    const priceAmount=0;
+    const priceAmount=[];
     const [item, setItem] = useState(itemInitial);
     const [price, setprice] = useState(priceAmount);
 
@@ -14,7 +14,7 @@ const CartState=(props)=>{
     }
 
     const addPrice=(pri)=>{
-        setprice(pri)
+        setprice(price.concat(pri))
     }
 
     const removeItem=(items)=>{
@@ -29,6 +29,7 @@ const CartState=(props)=>{
         console.log(i)
        const filterArr=item.filter(items=>items.name!==i)
        setItem(filterArr)
+
     //    setItem(item.concat(itmAdd))
     //     const i=items
     //     // console.log(i.name)
