@@ -8,7 +8,7 @@ const Input = (props) => {
     let candyPrice=useRef()
     let candyQuantity=useRef()
 
-const handleClick=(e)=>{
+const handleClick=async(e)=>{
     e.preventDefault();
     let obj={
         name:candyName.current.value,
@@ -17,6 +17,16 @@ const handleClick=(e)=>{
         quantity:+candyQuantity.current.value
     }
     props.setitem([...props.items,obj])
+
+   const response= await fetch('https://crudcrud.com/api/1a5c0e0edd6f412ea0cfe179e0199f46/products',{
+    method:'POST',
+    body:JSON.stringify(obj),
+    headers:{
+      'Content-Type':'application/json'
+    }
+   });
+   let data=await response.json();
+  //  console.log(data);
     
 }
 

@@ -1,8 +1,8 @@
 
-import {  useState } from 'react';
+import {  useContext, useEffect, useState } from 'react';
 import './App.css';
 import Input from './UI/Input';
-import CartState from './store/CartState'
+
 import ItemList from './components/ItemList';
 import Cart from './components/Cart';
 import { CartContext } from './store/CartContext';
@@ -10,55 +10,38 @@ import { CartContext } from './store/CartContext';
 function App() {
 
   
-
-  const Candieslist=[
-    {
-        id:1,
-        name:'Eclairs',
-        description:'Cloclaty',
-        price:2,
-        quantity:1
-    },
-    {
-        id:2,
-        name:'Mango byte',
-        description:'mango flavour',
-        price:1,
-        quantity:1
-    },
-    {
-        id:3,
-        name:'Alpenlibe',
-        description:'Coffee toffee',
-        price:2,
-        quantity:1
-    },
-    {
-        id:4,
-        name:'Parle',
-        description:'sweet',
-        price:4,
-        quantity:1
-    },
-]
+const Cartctx=useContext(CartContext)
+  const Candieslist=[];
 const [dummyCandies, setdummyCandies] = useState(Candieslist);
 
-  let arr=[];
-  const [item, setitem] = useState(arr);
+
+  
 
 
-  const addItemHandle=(items)=>{
-    setitem([...item,items])
-  }
+ 
+    useEffect(()=>{
+     const fetchData=async()=>{
+      const response=await fetch('https://crudcrud.com/api/1a5c0e0edd6f412ea0cfe179e0199f46/products',{
+        method:'GET',
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+      const data=await response.json();
+      setdummyCandies(data)
+      // console.log(data)
+     }
+     fetchData()
+    },[])
   // console.log(item)
   return (
 
-    <CartState>
-      <Cart length={item.length} items={item}/>
-    <Input onAdd={addItemHandle} items={dummyCandies} setitem={setdummyCandies}/>
-    <ItemList  items={dummyCandies} onAdd={addItemHandle}/>
+    <>
+      <Cart  />
+    <Input  items={dummyCandies} setitem={setdummyCandies}/>
+    <ItemList  items={dummyCandies} />
     
-    </CartState>
+    </>
   );
 }
 

@@ -35,6 +35,7 @@ const ItemList = (props) => {
              value:price,
            }
            ctx.addPrice(priceObj)
+           
            setrender(!render)
          }
         // setrender(!render)

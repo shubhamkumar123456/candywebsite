@@ -6,25 +6,28 @@ const CartItems = (props) => {
   const [update, setupdate] = useState(false);
   const ctx=useContext(CartContext)
   const {item}=ctx
+  // console.log(item)
  const arr=[...item]
 
 //  console.log(arr)
 
-console.log(ctx.price)
+// console.log(ctx.price)
   
     let sum=0;
 
 
 
     const handleClick=(value,price)=>{
+      // console.log(value)
       // const existingArrItem=arr.findIndex(item=>item.name==value);
       // console.log(ctx.price)
       const existingItem=ctx.item.findIndex(item=>item.name===value);
       // const names=ctx.item[existingItem].name
       // console.log(names)
       const existingPriceItem=ctx.price.findIndex(item=>item.name===value)
+      // console.log(existingPriceItem)
       const Price=ctx.price[existingPriceItem].value
-      console.log(price)
+      // console.log(price)
       ctx.item[existingItem].quantity=ctx.item[existingItem].quantity+1
       ctx.item[existingItem].price=ctx.item[existingItem].quantity*Price
       setupdate(!update)
